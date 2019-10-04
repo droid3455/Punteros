@@ -59,6 +59,19 @@ void invertir(int *arr, int tam)
     cout<< *ptr << endl;
 }
 
+void invertirRecursivo(int *arr, int tam, int *ptr)
+{
+    ptr = arr+tam-1;
+    while(tam--)
+    {
+        swap(*arr,*ptr);
+        arr++;
+        ptr--;
+        return;
+    }
+    invertirRecursivo(arr++,tam, ptr--);
+
+}
 int main()
 {
 
@@ -68,15 +81,16 @@ int main()
     imprimirArreglo(x, tam);
     sumarArreglo(x, tam)
     cout << sumarRecursivo(x,tam);
-
     int a=5;
     int b=10;
-
     int *ptr1 = &a;
     int *ptr2 = &b;
     swap(ptr1,ptr2);
     cout << a << " " << b << endl;
-    */
+
     invertir(x,tam);
     imprimirArreglo(x, tam);
+    */
+    invertirRecursivo(x,tam,0);
+    imprimirArreglo(x,tam);
 }
